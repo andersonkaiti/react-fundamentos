@@ -1,3 +1,4 @@
-const user = {}
+import React from 'react'
+import { createRoot } from 'react-dom/client'
 
-console.log(user?.address?.street)
+createRoot(document.getElementById('root')).render(<h1>Olá, Mundo!</h1>)
