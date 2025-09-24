@@ -18,13 +18,19 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
     ],
   },
   mode: 'development',
+  devServer: {
+    port: 3000,
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
 }
 
 module.exports = config
