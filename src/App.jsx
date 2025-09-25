@@ -1,6 +1,20 @@
 import Header from './Header'
 import Post from './Post'
 
+/**
+ * @type {Array<{
+ *  title: string,
+ *  subtitle: string,
+ *  likes: number
+ * }>}
+ */
+const posts = [
+  { title: 'Title #01', subtitle: 'Sub #01', likes: 20 },
+  { title: 'Title #02', subtitle: 'Sub #02', likes: 10 },
+  { title: 'Title #03', subtitle: 'Sub #03', likes: 50 },
+  { title: 'Title #04', subtitle: 'Sub #04', likes: 50 },
+]
+
 export default function App() {
   return (
     <>
@@ -10,29 +24,18 @@ export default function App() {
 
       <hr />
 
-      {/* <Post subtitle="Subtítulo da notícia 01" title={primeiroTitulo} /> */}
+      {/* {[<h1>Primeiro elemento</h1>, <h1>Segundo elemento</h1>]} */}
 
-      <Post
-        likes={20}
-        post={{
-          title: 'Título da notícia 01',
-          subtitle: 'Subtítulo da notícia 01',
-        }}
-      />
-      <Post
-        likes={20}
-        post={{
-          title: 'Título da notícia 02',
-          subtitle: 'Subtítulo da notícia 02',
-        }}
-      />
-      <Post
-        likes={20}
-        post={{
-          title: 'Título da notícia 03',
-          subtitle: 'Subtítulo da notícia 03',
-        }}
-      />
+      {posts.map((post) => (
+        <Post
+          key={post.title}
+          likes={post.likes}
+          post={{
+            title: post.title,
+            subtitle: post.subtitle,
+          }}
+        />
+      ))}
     </>
   )
 }
