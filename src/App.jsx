@@ -1,12 +1,12 @@
+import Header from './Header'
 import Post from './Post'
-
-const primeiroTitulo = 'Título da notícia 01'
 
 export default function App() {
   return (
     <>
-      <h1>JStack's Blog</h1>
-      <h2>Posts da semana</h2>
+      <Header title="JStack's Blog">
+        <h2>Posts da semana</h2>
+      </Header>
 
       <hr />
 
@@ -14,7 +14,7 @@ export default function App() {
 
       <Post
         post={{
-          title: primeiroTitulo,
+          title: 'Título da notícia 01',
           subtitle: 'Subtítulo da notícia 01',
         }}
       />
