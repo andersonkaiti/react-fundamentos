@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { ThemeContext } from './App'
+import { ThemeContext } from './ThemeContext'
 
 export default function Button({ children, onClick }) {
   const { theme } = useContext(ThemeContext)

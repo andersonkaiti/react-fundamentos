@@ -1,12 +1,9 @@
-import { createContext, useState } from 'react'
+import { useState } from 'react'
 import Header from './Header'
 import Post from './Post'
-
-export const ThemeContext = createContext()
+import ThemeProvider from './ThemeContext'
 
 export default function App() {
-  const [theme, setTheme] = useState('dark')
-
   const [posts, setPosts] = useState([
     {
       id: Math.random(),
@@ -38,10 +35,6 @@ export default function App() {
     },
   ])
 
-  function handleToggleTheme() {
-    setTheme((prevState) => (prevState === 'dark' ? 'light' : 'dark'))
-  }
-
   function handleRefresh() {
     setPosts((prevState) => [
       ...prevState,
@@ -59,7 +52,7 @@ export default function App() {
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, onToggleTheme: handleToggleTheme }}>
+    <ThemeProvider>
       <Header>
         <h2>
           Posts da semana
@@ -74,6 +67,6 @@ export default function App() {
       {posts?.map((post) => (
         <Post key={post.title} onRemove={handleRemovePost} post={post} />
       ))}
-    </ThemeContext.Provider>
+    </ThemeProvider>
   )
 }
