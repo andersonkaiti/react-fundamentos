@@ -1,60 +1,25 @@
-import PropTypes from 'prop-types'
-
-export default function Post(props) {
-  // if (props.post.read) {
-  //   return <h2>{props.post.title} já foi lido</h2>
-  // }
-
+export default function Post({
+  post: { read, title, id, subtitle, likes },
+  onRemove,
+}) {
   return (
     <>
       <article>
         <strong>
-          {/* {props.post.read ? <s>{props.post.title}</s> : props.post.title} */}
-          {props.post.read && <s>{props.post.title}</s>}
+          {read && <s>{title}</s>}
 
-          {!props.post.read && props.post.title}
+          {!read && title}
         </strong>
-        <button onClick={() => props.onRemove(props.post.id)} type="button">
+        <button onClick={() => onRemove(id)} type="button">
           Remover
         </button>
         <br />
-        <small>{props.post.subtitle}</small>
+        <small>{subtitle}</small>
         <br />
-        Média: {props.post.likes / 2}
+        Média: {likes / 2}
       </article>
 
       <br />
-
-      {/* {props.post.read ? (
-        <h2>{props.post.title} já foi lido</h2>
-      ) : (
-        <>
-          <article>
-            <strong>
-              {props.post.read ? <s>{props.post.title}</s> : props.post.title}
-            </strong>
-            <button onClick={() => props.onRemove(props.post.id)} type="button">
-              Remover
-            </button>
-            <br />
-            <small>{props.post.subtitle}</small>
-            <br />
-            Média: {props.post.likes / 2}
-          </article>
-          <br />{' '}
-        </>
-      )} */}
     </>
   )
-}
-
-Post.propTypes = {
-  onRemove: PropTypes.func.isRequired,
-  post: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    likes: PropTypes.number.isRequired,
-    read: PropTypes.bool.isRequired,
-  }).isRequired,
 }
