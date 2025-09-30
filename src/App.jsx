@@ -47,9 +47,7 @@ export default function App() {
   }
 
   function handleRemovePost(postId) {
-    setPosts((prevState) => {
-      prevState.filter((post) => post.id !== postId)
-    })
+    setPosts((prevState) => prevState.filter((post) => post.id !== postId))
   }
 
   return (
@@ -65,7 +63,7 @@ export default function App() {
 
       <hr />
 
-      {posts.map((post) => (
+      {posts?.map((post) => (
         <Post key={post.title} onRemove={handleRemovePost} post={post} />
       ))}
     </>
