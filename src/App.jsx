@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { createContext, useState } from 'react'
 import Header from './Header'
 import Post from './Post'
+
+export const ThemeContext = createContext()
 
 export default function App() {
   const [theme, setTheme] = useState('dark')
@@ -57,8 +59,8 @@ export default function App() {
   }
 
   return (
-    <>
-      <Header onToggleTheme={handleToggleTheme} theme={theme}>
+    <ThemeContext.Provider value={{ theme, onToggleTheme: handleToggleTheme }}>
+      <Header>
         <h2>
           Posts da semana
           <button onClick={handleRefresh} type="button">
@@ -70,13 +72,8 @@ export default function App() {
       <hr />
 
       {posts?.map((post) => (
-        <Post
-          key={post.title}
-          onRemove={handleRemovePost}
-          post={post}
-          theme={theme}
-        />
+        <Post key={post.title} onRemove={handleRemovePost} post={post} />
       ))}
-    </>
+    </ThemeContext.Provider>
   )
 }

@@ -1,14 +1,10 @@
 import PostHeader from './PostHeader'
 
-export default function Post({
-  post: { subtitle, likes, ...rest },
-  onRemove,
-  theme,
-}) {
+export default function Post({ post: { subtitle, likes, ...rest }, onRemove }) {
   return (
     <>
       <article>
-        <PostHeader onRemove={onRemove} post={rest} theme={theme} />
+        <PostHeader onRemove={onRemove} post={rest} />
         <br />
         <small>{subtitle}</small>
         <br />

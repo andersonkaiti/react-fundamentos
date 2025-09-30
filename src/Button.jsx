@@ -1,4 +1,9 @@
-export default function Button({ children, onClick, theme }) {
+import { useContext } from 'react'
+import { ThemeContext } from './App'
+
+export default function Button({ children, onClick }) {
+  const { theme } = useContext(ThemeContext)
+
   return (
     <button
       onClick={onClick}
