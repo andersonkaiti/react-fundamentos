@@ -3,6 +3,8 @@ import Header from './Header'
 import Post from './Post'
 
 export default function App() {
+  const [theme, setTheme] = useState('dark')
+
   const [posts, setPosts] = useState([
     {
       id: Math.random(),
@@ -34,6 +36,10 @@ export default function App() {
     },
   ])
 
+  function handleToggleTheme() {
+    setTheme((prevState) => (prevState === 'dark' ? 'light' : 'dark'))
+  }
+
   function handleRefresh() {
     setPosts((prevState) => [
       ...prevState,
@@ -52,7 +58,7 @@ export default function App() {
 
   return (
     <>
-      <Header>
+      <Header onToggleTheme={handleToggleTheme} theme={theme}>
         <h2>
           Posts da semana
           <button onClick={handleRefresh} type="button">
@@ -64,7 +70,12 @@ export default function App() {
       <hr />
 
       {posts?.map((post) => (
-        <Post key={post.title} onRemove={handleRemovePost} post={post} />
+        <Post
+          key={post.title}
+          onRemove={handleRemovePost}
+          post={post}
+          theme={theme}
+        />
       ))}
     </>
   )

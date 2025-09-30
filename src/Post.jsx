@@ -1,18 +1,14 @@
+import PostHeader from './PostHeader'
+
 export default function Post({
-  post: { read, title, id, subtitle, likes },
+  post: { subtitle, likes, ...rest },
   onRemove,
+  theme,
 }) {
   return (
     <>
       <article>
-        <strong>
-          {read && <s>{title}</s>}
-
-          {!read && title}
-        </strong>
-        <button onClick={() => onRemove(id)} type="button">
-          Remover
-        </button>
+        <PostHeader onRemove={onRemove} post={rest} theme={theme} />
         <br />
         <small>{subtitle}</small>
         <br />
