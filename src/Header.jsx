@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import Button from './Button'
+import styles from './Header.css'
 import { ThemeContext } from './ThemeContext'
 
 export default function Header({ title = "JStack's Blog", children }) {
@@ -7,7 +8,7 @@ export default function Header({ title = "JStack's Blog", children }) {
 
   return (
     <>
-      <h1>{title}</h1>
+      <h1 className={styles.title}>{title}</h1>
       <Button onClick={onToggleTheme}>Mudar tema</Button>
       {children}
     </>
