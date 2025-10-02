@@ -1,14 +1,18 @@
 import { useContext } from 'react'
+import styled from 'styled-components'
 import { ThemeContext } from '../../contexts/ThemeContext'
 import Button from '../Button'
-import styles from './Header.scss'
+
+const Title = styled.h1`
+  color: #637bf3;
+`
 
 export default function Header({ title = "JStack's Blog", children }) {
   const { onToggleTheme } = useContext(ThemeContext)
 
   return (
     <>
-      <h1 className={styles.title}>{title}</h1>
+      <Title>{title}</Title>
       <Button onClick={onToggleTheme}>Mudar tema</Button>
       {children}
     </>
