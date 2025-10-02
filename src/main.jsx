@@ -1,5 +1,10 @@
 import { createRoot } from 'react-dom/client'
 import App from './components/App'
-import './index.scss'
+import GlobalStyle from './styles/global'
 
-createRoot(document.getElementById('root')).render(<App />)
+createRoot(document.getElementById('root')).render(
+  <>
+    <GlobalStyle />
+    <App />
+  </>
+)
