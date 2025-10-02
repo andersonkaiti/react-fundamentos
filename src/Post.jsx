@@ -1,17 +1,15 @@
+import styles from './Post.scss'
 import PostHeader from './PostHeader'
 
-export default function Post({ post: { subtitle, likes, ...rest }, onRemove }) {
+export default function Post({
+  post: { subtitle, likes, removed, ...rest },
+  onRemove,
+}) {
   return (
-    <>
-      <article>
-        <PostHeader onRemove={onRemove} post={rest} />
-        <br />
-        <small>{subtitle}</small>
-        <br />
-        Média: {likes / 2}
-      </article>
-
-      <br />
-    </>
+    <article className={removed ? styles.postDeleted : styles.post}>
+      <PostHeader onRemove={onRemove} post={rest} />
+      <small>{subtitle}</small>
+      Média: {likes / 2}
+    </article>
   )
 }

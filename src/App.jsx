@@ -12,6 +12,7 @@ export default function App() {
       subtitle: 'Sub #01',
       likes: 20,
       read: false,
+      removed: true,
     },
     {
       id: Math.random(),
@@ -19,6 +20,7 @@ export default function App() {
       subtitle: 'Sub #02',
       likes: 10,
       read: true,
+      removed: false,
     },
     {
       id: Math.random(),
@@ -26,6 +28,7 @@ export default function App() {
       subtitle: 'Sub #03',
       likes: 50,
       read: false,
+      removed: false,
     },
     {
       id: Math.random(),
@@ -33,6 +36,7 @@ export default function App() {
       subtitle: 'Sub #04',
       likes: 50,
       read: false,
+      removed: false,
     },
   ])
 
@@ -49,7 +53,14 @@ export default function App() {
   }
 
   function handleRemovePost(postId) {
-    setPosts((prevState) => prevState.filter((post) => post.id !== postId))
+    setPosts((prevState) =>
+      prevState.map((post) => ({
+        ...post,
+        ...(post.id === postId && {
+          removed: true,
+        }),
+      }))
+    )
   }
 
   return (
