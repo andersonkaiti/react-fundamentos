@@ -23,7 +23,7 @@ const config = {
         use: 'babel-loader',
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [
           'style-loader',
           {
@@ -33,6 +33,7 @@ const config = {
               esModule: false,
             },
           },
+          'sass-loader',
         ],
       },
     ],
