@@ -1,5 +1,14 @@
 import styled from 'styled-components'
 
+const REMOVED_OPACITY = 0.5
+const FULL_OPACITY = 1
+
+export const Container = styled.article`
+  margin-bottom: 24px;
+  opacity: ${({ removed }) => (removed ? REMOVED_OPACITY : FULL_OPACITY)};
+  color: ${({ removed }) => (removed ? '#f00' : '#fff')};
+`
+
 export const Subtitle = styled.small`
   display: block;
 `
