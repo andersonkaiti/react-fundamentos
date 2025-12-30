@@ -1,16 +1,10 @@
-import { useContext } from 'react'
-import { ThemeContext } from '../../contexts/ThemeContext'
-import Button from '../Button'
-import Title from './../Title'
+import { Container } from './styles'
 
-export default function Header({ title = "JStack's Blog", children }) {
-  const { onToggleTheme } = useContext(ThemeContext)
-
+export default function Header() {
   return (
-    <>
-      <Title>{title}</Title>
-      <Button onClick={onToggleTheme}>Mudar tema</Button>
-      {children}
-    </>
+    <Container>
+      <h1>JStack's Blog</h1>
+      <button type="button">☀️</button>
+    </Container>
   )
 }

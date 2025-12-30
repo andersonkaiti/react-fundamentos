@@ -1,10 +1,10 @@
 import { createRoot } from 'react-dom/client'
-import App from './components/App'
+import Layout from './components/Layout'
 import GlobalStyle from './styles/global'
 
 createRoot(document.getElementById('root')).render(
   <>
     <GlobalStyle />
-    <App />
+    <Layout />
   </>
 )
