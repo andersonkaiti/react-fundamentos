@@ -1,5 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Container = styled.section`
-  margin-top: 24px;
+  ${({ theme }) => css`
+    margin-top: ${theme.spacing.large};
+  `}
 `
