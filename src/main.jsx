@@ -1,12 +1,4 @@
 import { createRoot } from 'react-dom/client'
-import { ThemeProvider } from 'styled-components'
-import Layout from './components/Layout'
-import GlobalStyle from './styles/global'
-import themes from './styles/themes'
+import App from './App'
 
-createRoot(document.getElementById('root')).render(
-  <ThemeProvider theme={themes.light}>
-    <GlobalStyle />
-    <Layout />
-  </ThemeProvider>
-)
+createRoot(document.getElementById('root')).render(<App />)
