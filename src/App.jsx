@@ -1,22 +1,23 @@
-import { useLayoutEffect } from 'react'
 import Layout from './components/Layout'
 import { useTheme } from './contexts/ThemeProvider'
 import GlobalStyle from './styles/global'
 
 export default function App() {
-  const { theme } = useTheme()
-
-  useLayoutEffect(() => {
-    for (let i = 0; i <= 15_000; i++) {
-      console.debug(i)
-    }
-  }, [theme])
+  const { theme, onToggleTheme } = useTheme()
 
   return (
-    <>
+    <div
+      style={{
+        height: '500vh',
+      }}
+    >
       <GlobalStyle />
 
-      <Layout />
-    </>
+      <button onClick={onToggleTheme} type="button">
+        Toggle theme
+      </button>
+
+      {theme === 'dark' && <Layout />}
+    </div>
   )
 }
