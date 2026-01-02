@@ -2,10 +2,11 @@ import { Component } from 'react'
 import Layout from './components/Layout'
 import GlobalStyle from './styles/global'
 
+// function hello() {}
+// hello.bind(...)
+
 export default class App extends Component {
   constructor(props) {
-    // Executa o método constructor da classe pai
-    // Component.constructor()
     super(props)
 
     this.state = {
@@ -13,19 +14,20 @@ export default class App extends Component {
       message: 'Hello, World!',
     }
 
-    // Isso acontece ao executar o método .setState(), ou seja, ele não sobrescreve tudo, mas sim realiza um merge
-    // function setState(newState) {
-    //   this.state = {
-    //     ...currentState,
-    //     ...newState,
-    //   }
-    // }
+    this.handleIncrement = this.handleIncrement.bind(this)
+  }
+
+  handleIncrement() {
+    // O método contém o próprio objeto this
+    console.log(this)
+
+    this.setState((prevState) => ({
+      count: prevState.count + 1,
+    }))
   }
 
   render() {
     const { count } = this.state
-
-    console.log(this.state)
 
     return (
       <>
@@ -34,11 +36,7 @@ export default class App extends Component {
         <Layout />
 
         <button
-          onClick={() =>
-            this.setState((prevState) => ({
-              count: prevState.count + 1,
-            }))
-          }
+          onClick={this.handleIncrement}
           style={{
             marginTop: '10px',
           }}
