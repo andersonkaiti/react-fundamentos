@@ -9,14 +9,17 @@ export default class App extends Component {
   }
 
   handleIncrement = () => {
-    // A arrow function herda o objeto this do contexto em que foi criada
-    this.setState((prevState) => ({
-      count: prevState.count + 1,
-    }))
+    this.forceUpdate()
+
+    // this.setState((prevState) => ({
+    //   count: prevState.count + 1,
+    // }))
   }
 
   render() {
     const { count } = this.state
+
+    console.log('<App /> renderizou')
 
     return (
       <>
