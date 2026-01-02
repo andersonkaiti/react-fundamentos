@@ -30,6 +30,11 @@ export default class App extends Component {
     })
   }
 
+  // Pega os erros dentro dos componentes filhos
+  componentDidCatch(error, info) {
+    console.log('componentDidCatch', { error, info })
+  }
+
   // O equivalente ao render é o useEffect(() => {})
   render() {
     const { count } = this.state
