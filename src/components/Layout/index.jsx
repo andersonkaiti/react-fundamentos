@@ -1,15 +1,33 @@
+import { Component } from 'react'
 import Footer from '../Footer'
 import Header from '../Header'
 import PostsList from '../PostsList'
 
-export default function Layout() {
-  return (
-    <>
-      <Header />
+export default class Layout extends Component {
+  componentDidMount() {
+    console.log('componentDidMount executed')
+    document.addEventListener('scroll', this.handleScroll)
+  }
 
-      <PostsList />
+  componentWillUnmount() {
+    console.log('componentWillUnmount executed')
 
-      <Footer />
-    </>
-  )
+    document.removeEventListener('scroll', this.handleScroll)
+  }
+
+  handleScroll = () => {
+    console.log('scrolled')
+  }
+
+  render() {
+    return (
+      <>
+        <Header />
+
+        <PostsList />
+
+        <Footer />
+      </>
+    )
+  }
 }
