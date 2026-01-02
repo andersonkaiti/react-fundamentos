@@ -4,6 +4,6 @@ import ThemeProvider from './contexts/ThemeProvider'
 
 createRoot(document.getElementById('root')).render(
   <ThemeProvider>
-    <App />
+    <App propName="propValue" />
   </ThemeProvider>
 )
