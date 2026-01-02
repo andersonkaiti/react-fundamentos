@@ -2,25 +2,14 @@ import { Component } from 'react'
 import Layout from './components/Layout'
 import GlobalStyle from './styles/global'
 
-// function hello() {}
-// hello.bind(...)
-
 export default class App extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      count: 0,
-      message: 'Hello, World!',
-    }
-
-    this.handleIncrement = this.handleIncrement.bind(this)
+  state = {
+    count: 0,
+    message: 'Hello, World!',
   }
 
-  handleIncrement() {
-    // O método contém o próprio objeto this
-    console.log(this)
-
+  handleIncrement = () => {
+    // A arrow function herda o objeto this do contexto em que foi criada
     this.setState((prevState) => ({
       count: prevState.count + 1,
     }))
