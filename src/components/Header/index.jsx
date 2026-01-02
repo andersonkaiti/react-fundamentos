@@ -6,7 +6,6 @@ export default class Header extends Component {
   render() {
     return (
       <ThemeContext.Consumer>
-        {/* O nome disso é render props */}
         {({ theme, onToggleTheme }) => (
           <Container>
             <h1>JStack's Blog</h1>
