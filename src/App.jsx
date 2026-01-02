@@ -23,7 +23,7 @@ export default class App extends Component {
 
   // O método é executado toda vez que ocorre uma execução de prop ou state e é chamado após o render
   componentDidUpdate(prevProps, prevState) {
-    console.log({
+    console.log('componentDidUpdate', {
       currentState: this.state,
       previousState: prevState,
       previousProps: prevProps,
@@ -33,6 +33,16 @@ export default class App extends Component {
   // Pega os erros dentro dos componentes filhos
   componentDidCatch(error, info) {
     console.log('componentDidCatch', { error, info })
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('shouldComponentUpdate', {
+      currentState: this.state,
+      nextState,
+      nextProps,
+    })
+
+    return true
   }
 
   // O equivalente ao render é o useEffect(() => {})
