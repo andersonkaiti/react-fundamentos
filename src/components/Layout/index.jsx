@@ -1,33 +1,15 @@
-import { Component } from 'react'
+import Routes from '../../Routes'
 import Footer from '../Footer'
 import Header from '../Header'
-import PostsList from '../PostsList'
 
-export default class Layout extends Component {
-  componentDidMount() {
-    console.log('componentDidMount executed')
-    document.addEventListener('scroll', this.handleScroll)
-  }
+export default function Layout() {
+  return (
+    <>
+      <Header />
 
-  componentWillUnmount() {
-    console.log('componentWillUnmount executed')
+      <Routes />
 
-    document.removeEventListener('scroll', this.handleScroll)
-  }
-
-  handleScroll = () => {
-    console.log('scrolled')
-  }
-
-  render() {
-    return (
-      <>
-        <Header />
-
-        <PostsList />
-
-        <Footer />
-      </>
-    )
-  }
+      <Footer />
+    </>
+  )
 }
