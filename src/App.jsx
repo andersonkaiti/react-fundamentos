@@ -17,25 +17,18 @@ export default class App extends Component {
     console.log('componentDidMount executed')
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate', {
-      currentState: this.state,
-      previousState: prevState,
-      previousProps: prevProps,
-    })
+  componentDidUpdate(_, prevState) {
+    // useEffect(() => {}, [count])
+    if (prevState.count !== this.state.count) {
+      console.log('count changed')
+    }
   }
 
   componentDidCatch(error, info) {
     console.log('componentDidCatch', { error, info })
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('shouldComponentUpdate', {
-      currentState: this.state,
-      nextState,
-      nextProps,
-    })
-
+  shouldComponentUpdate(_nextProps, _nextState) {
     return true
   }
 
