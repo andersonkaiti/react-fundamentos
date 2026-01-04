@@ -8,6 +8,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle[hash].js',
+    publicPath: '/',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -41,8 +42,6 @@ const config = {
   mode: 'development',
   devServer: {
     port: 3000,
-    // O BrowserRouter do React Router DOM usa a API History do HTML5 para controlar as rotas
-    // historyApiFallback: true, diz ao devServer para sempre retornar o index.html
     historyApiFallback: true,
   },
   resolve: {
