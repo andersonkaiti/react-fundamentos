@@ -1,15 +1,29 @@
-import { useMemo } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { Component } from 'react'
 
-export default function Post() {
-  const params = useParams()
-  const { search } = useLocation()
+export default class Post extends Component {
+  constructor(props) {
+    super(props)
 
-  // Só criará uma nova instancia do URLSearchParams quando o search mudar
-  const queryParams = useMemo(() => new URLSearchParams(search), [search])
+    // Para não recalcular uma nova instancia do URLSearchParams toda vez que o componente renderizar em class components, basta fazer isso no método construtor:
+    this.queryParams = new URLSearchParams(this.props.location.search)
+  }
 
-  console.log(params)
-  console.log(queryParams.get('meuQueryParam'))
+  render() {
+    console.log(this.props.match.params)
+    console.log(this.queryParams.get('meuQueryParam'))
 
-  return <h1>Post page</h1>
+    return <h1>Post page</h1>
+  }
 }
+
+// export default function Post() {
+//   const params = useParams()
+//   const { search } = useLocation()
+
+//   const queryParams = useMemo(() => new URLSearchParams(search), [search])
+
+//   console.log(params)
+//   console.log(queryParams.get('meuQueryParam'))
+
+//   return <h1>Post page</h1>
+// }

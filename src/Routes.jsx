@@ -9,8 +9,7 @@ export default function Routes() {
     <Switch>
       <Route component={Home} exact path="/" />
       <Route component={Posts} exact path="/posts" />
-      {/* Ao adicionar o dois-pontos (:), o id passa a ser dinâmico */}
-      <Route component={Post} path="/posts/:id/:author" />
+      <Route component={Post} path="/posts/:id" />
       <Route component={NotFound} />
     </Switch>
   )
