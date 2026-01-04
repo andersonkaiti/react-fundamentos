@@ -3,6 +3,7 @@ import { animated, useTransition } from 'react-spring'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Post from './pages/Post'
+import Post from './pages/Post'
 import Posts from './pages/Posts'
 
 export default function Routes() {
